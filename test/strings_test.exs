@@ -54,14 +54,14 @@ defmodule Tutor.StringsTest do
 
   @tag :skip
   test "returns false if the given string is not a question but contains a question mark" do
-    assert Strings.question("Hello? Hello? Fine. Whatever.") == false
+    assert Strings.question?("Hello? Hello? Fine. Whatever.") == false
   end
 
   @tag :skip
-  test "replaces Donald Trump with Someone With Small Hands" do
+  test "replaces Donald Trump with Someone With Tiny Hands" do
     paragraph = "Donald Trump said Wednesday that he thinks \"Islam hates us,\" drawing little distinction between the religion and radical Islamic terrorism. Asked if the hate was \"in Islam itself,\" Donald Trump would only say that was for the media to figure out."
-    expected = "Someone With Small Hands said Wednesday that he thinks \"Islam hates us,\" drawing little distinction between the religion and radical Islamic terrorism. Asked if the hate was \"in Islam itself,\" Someone With Small Hands would only say that was for the media to figure out."
-    assert Strings.trump("Donald Trump") == "Someone With Small Hands"
+    expected = "Someone With Tiny Hands said Wednesday that he thinks \"Islam hates us,\" drawing little distinction between the religion and radical Islamic terrorism. Asked if the hate was \"in Islam itself,\" Someone With Tiny Hands would only say that was for the media to figure out."
+    assert Strings.trump("Donald Trump") == "Someone With Tiny Hands"
     assert Strings.trump(paragraph) == expected
   end
 
