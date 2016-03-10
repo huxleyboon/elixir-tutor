@@ -70,9 +70,7 @@ defmodule Tutor.Strings do
       true
 
   """
-  def has_an_a?(str) do
-    
-  end
+  def has_an_a?(str), do: String.contains?(str, "a")
 
   @doc """
   Checks if a given string is a question.
@@ -87,9 +85,7 @@ defmodule Tutor.Strings do
       false
 
   """
-  def question?(str) do
-    
-  end
+  def question?(str), do: String.last(str) == "?"
 
   @doc """
   Replaces the string "Donald Trump" with "Someone With Tiny Hands"
@@ -102,7 +98,7 @@ defmodule Tutor.Strings do
 
   """
   def trump(str) do
-    
+    String.replace(str, "Donald Trump", "Someone With Tiny Hands")
   end
 
   @doc """
@@ -116,7 +112,9 @@ defmodule Tutor.Strings do
 
   """
   def list_reversed(str) do
-    
+    str
+    |> String.reverse
+    |> String.split
   end
 
   @doc """
@@ -133,19 +131,32 @@ defmodule Tutor.Strings do
 
   """
   def first_two(str) do
-    
+    str
+    |> String.lstrip
+    |> String.slice(0..1)
   end
 
   @doc """
   Returns the given string as an atom
   """
+  def to_atom(str) do
+    str
+    |> String.replace(" ", "_")
+    |> String.to_atom
+  end
 
   @doc """
   With a given name, and a given verb,
   says what that person did today
   """
+  def did_today(name, activity) do
+    "Today, #{name} #{activity}."
+  end
 
   @doc """
   Returns any given string as a shouted question
   """
+  def shout_question(str) do
+    String.upcase(str) <> "?"
+  end
 end
